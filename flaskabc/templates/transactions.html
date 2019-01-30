@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<a href = "{{ url_for('new_transaction') }}"> Create Transaction?</a>
+
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+<body>
+  <table id="customers">
+      
+      <thead>
+    
+    <thead>
+        <tr>
+            <th>Service</th>
+            <th>Provider</th>
+            <th>Date</th>
+            <th>Amount</th>
+          </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+          <td>{{ transaction.service }}</td>
+          <td>{{ transaction.provider }}</td>
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.amount }}</td>
+          <td><a href = "{{ url_for('update_transaction', transaction_id = transaction.id) }}">Update</a></td>
+          <td><a href = "{{ url_for('delete_transaction', transaction_id = transaction.id) }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+  </table>
+</body>
+  
+    
+{% endblock content %}

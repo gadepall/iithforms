@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                    {{ form.curr_date.label(class="form-control-label") }}
+                                        
+                        {% if form.curr_date.errors %}
+                            {{ form.curr_date(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.curr_date.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                          {{ form.curr_date(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            
+            <div class="form-group">
+                    {{ form.station.label(class="form-control-label") }}
+                                        
+                        {% if form.station.errors %}
+                            {{ form.station(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.station.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.station(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+
+            <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+                                        
+                        {% if form.name.errors %}
+                            {{ form.name(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.name(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.address.label(class="form-control-label") }}
+                                        
+                        {% if form.address.errors %}
+                            {{ form.address(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.address.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.address(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.bankbranch.label(class="form-control-label") }}
+                                        
+                        {% if form.bankbranch.errors %}
+                            {{ form.bankbranch(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.bankbranch.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.bankbranch(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.acc_num.label(class="form-control-label") }}
+                                        
+                        {% if form.acc_num.errors %}
+                            {{ form.acc_num(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.acc_num.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.acc_num(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.ifsc.label(class="form-control-label") }}
+                                        
+                        {% if form.ifsc.errors %}
+                            {{ form.ifsc(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.ifsc.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.ifsc(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('#datepick').datetimepicker();
+    });
+  </script>
+{% endblock %}

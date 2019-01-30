@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+<p><a href = "{{ url_for('new_reim') }}"> Create new Reimbursement Form?</a> <a href = "{{ url_for('delete_reims') }}">       Delete all Entries?</a></p>
+
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+<body>
+  <table id="customers">
+      
+      <thead>
+    
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Net Claimed</th>
+            <th>Bank Name & Details</th>
+            <th>Account Number</th>
+            <th>IFSC Code</th>
+            
+          </tr>
+    </thead>
+    <tbody>
+        {% for reim in reims %}
+        <tr>
+          <td>{{ reim.name }}</td>
+          <td>{{ reim.dpt }}</td>
+          <td>{{ reim.net_claimed }}</td>
+          <td>{{ reim.bank }}</td>
+          <td>{{ reim.acc_no }}</td>
+          <td>{{ reim.ifsc }}</td>
+          <td><a href = "{{ url_for('all_reim_det', reim_id = reim.id) }}">Fill Reimbursement Details</a></td>
+
+          <td><a href = "{{ url_for('update_reim', reim_id = reim.id) }}">Update</a></td>
+          <td><a href = "{{ url_for('delete_reim', reim_id = reim.id) }}">Delete</a></td>
+          <td><a href = "{{ url_for('download_reim', reim_id = reim.id) }}">Download</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+  </table>
+</body>
+    
+{% endblock content %}
+
+

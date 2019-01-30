@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+    <p>You have successfully uploaded the file</p>
+    <a href="{{ url_for('download_excel') }}">Click here for Excel Sheet</a>
+    <p><a href = "{{ url_for('upload_file') }}"> Upload new pdf? </a></p>
+{% endblock content %}
+
+
+

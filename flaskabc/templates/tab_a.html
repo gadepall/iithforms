@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block content %}
+<p><a href = "{{ url_for('new_tab_a',tab_id = tab.id) }}"> Create new Entry?</a> </p>
+
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+<body>
+  <table id="customers">
+      
+      <thead>
+    
+    <thead>
+        <tr>
+            <th>Station (Departure)</th>
+            <th>Date (Departure)</th>
+            <th>Hour (Departure)</th>
+            <th>Station (Arrival)</th>
+            <th>Date (Arrival)</th>
+            <th>Hour (Arrival)</th>
+            <th>Mode of Journey </th>
+            <th>Class</th>
+            <th>Road (kms)</th>
+            <th>Flight/Train tkt no.</th>
+            <th>Fare (Rs.)</th>
+          </tr>
+    </thead>
+    <tbody>
+        {% for tab_a in tabs_a %}
+        <tr>
+          <td>{{ tab_a.ds }}</td>
+          <td>{{ tab_a.dd }}</td>
+          <td>{{ tab_a.dtym }}</td>
+          <td>{{ tab_a.arst }}</td>
+          <td>{{ tab_a.ad }}</td>
+          <td>{{ tab_a.atym }}</td>
+          <td>{{ tab_a.moj }}</td>
+          <td>{{ tab_a.jc }}</td>
+          <td>{{ tab_a.road }}</td>
+          <td>{{ tab_a.tktno }}</td>
+          <td>{{ tab_a.fare }}</td>
+          <td><a href = "{{ url_for('delete_tab_a', tab_a_id = tab_a.id) }}">Delete</a></td>
+          
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+  </table>
+</body>
+    
+{% endblock content %}
+
+

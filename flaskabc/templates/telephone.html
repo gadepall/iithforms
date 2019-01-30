@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block content %}
+<p><a href = "{{ url_for('new_telephone') }}"> Create Telephone Form?</a> <a href = "{{ url_for('delete_telephones') }}">       Delete all Entries?</a></p>
+
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+<body>
+  <table id="customers">
+      
+      <thead>
+    
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Department</th>
+            <th>Employee ID</th>
+            <th>Bill</th>
+            <th>Month</th>
+            <th>Date</th>
+            <th>Bank Details</th>
+            <th>Account No.</th>
+            <th>IFSC Code</th>
+            
+          </tr>
+    </thead>
+    <tbody>
+        {% for telephone in telephones %}
+        <tr>
+          <td>{{ telephone.name }}</td>
+          <td>{{ telephone.designation }}</td>
+          <td>{{ telephone.department }}</td>
+          <td>{{ telephone.emp_id }}</td>
+          <td>{{ telephone.bill }}</td>
+          <td>{{ telephone.month }}</td>
+          <td>{{ telephone.date }}</td>
+          <td>{{ telephone.bank }}</td>
+          <td>{{ telephone.account }}</td>
+          <td>{{ telephone.ifsc }}</td>
+          <td><a href = "{{ url_for('update_telephone', telephone_id = telephone.id) }}">Update</a></td>
+          <td><a href = "{{ url_for('delete_telephone', telephone_id = telephone.id) }}">Delete</a></td>
+          <td><a href = "{{ url_for('download_telephone', telephone_id = telephone.id) }}">Download</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+  </table>
+</body>
+    
+{% endblock content %}
+
+

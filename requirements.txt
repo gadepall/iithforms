@@ -1,0 +1,10 @@
+Flask
+XlsxWriter
+Flask-WTF
+wtforms-html5
+inflect
+flask-login
+gunicorn
+pyPDF2
+flask-sqlalchemy
+reportlab

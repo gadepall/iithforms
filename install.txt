@@ -1,0 +1,28 @@
+virtualenv -p python3 envname
+source envname/bin/activate
+[Run the below two commands only for first time]
+
+pip install -r requirements.txt
+python createdb.py (creates all the tables in the database, sets username = tlc & password = 1234)
+
+deactivate
+
+python app.py (for running the project locally)
+
+Below commands for creating server: 
+
+change ip by doing sudo nano /etc/supervisor/conf.d/myapp.conf
+
+(Copy the below code betwn '#' in app.conf to create a server using gunicorn)
+##########################################################################
+[program:myapp]
+directory=/home/pi/myapp
+command=/home/pi/myapp/venv/bin/gunicorn app:app -b 0.0.0.0:8002
+autostart=true
+autorestart=true
+##########################################################################
+
+sudo supervisorctl reread
+sudo service supervisor restart
+sudo supervisorctl status
+sudo service supervisor stop

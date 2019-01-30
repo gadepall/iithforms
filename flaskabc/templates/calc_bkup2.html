@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content %}
+    <body>
+
+      <h1>Calculator</h1>
+        <form action ="/" method="POST">
+         
+           <p><input type ="text" name ="name" value="{{ result }}"/>  <input type="submit" name="equals" value="="></p>
+      <!--  <input type="text" name="abc" />-->
+      <!--  <input type="text" name="expression" />-->
+              <p>Malformed Expression!</p>
+      <p>
+      <input type="submit" name="one" value="1" >
+      <input type="submit" name="two" value="2">
+      <input type="submit" name="three" value="3">
+      <input type="submit" name="slash" value="/">
+      <input type="submit" name="cancel" value="C">
+      <input type="submit" name="back" value="<-">
+      
+      </p>
+      <p>
+      <input type="submit" name="four" value="4">
+      <input type="submit" name="five" value="5">
+      <input type="submit" name="six" value="6">
+      <input type="submit" name="mul" value="*">
+      <input type="submit" name="open" value="(">
+      </p>
+      <p>
+      <input type="submit" name="seven" value="7">
+      <input type="submit" name="eight" value="8">
+      <input type="submit" name="nine" value="9">
+      <input type="submit" name="plus" value="+">
+      <input type="submit" name="close" value=")">
+      
+      
+      </p>
+      <p>
+      <input type="submit" name="dot" value=".">
+      <input type="submit" name="zero" value="0">
+      <input type="submit" name="percentile" value="%">
+      
+      <input type="submit" name="minus" value="-">
+      <input type="submit" name="equals" value="=">
+      </p>
+      <!--  <p><input type ="submit" value="1"/>-->
+        </form>
+      </body>
+{% endblock content %}

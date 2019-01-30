@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+<p><a href = "{{ url_for('new_tab_b',tab_id = tab.id) }}"> Create new Entry?</a> </p>
+
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+<body>
+  <table id="customers">
+      
+      <thead>
+    
+    <thead>
+        <tr>
+            <th>Sr. No</th>
+            <th>Item of Expenditure</th>
+            <th>Amount (Rs.)</th>
+            <th>Cash Bill Details</th>
+            
+          </tr>
+    </thead>
+    <tbody>
+        {% for tab_b in tabs_b %}
+        <tr>
+            <td>{{ tab_b.id }}</td>
+          <td>{{ tab_b.exp }}</td>
+          <td>{{ tab_b.amt22 }}</td>
+          <td>{{ tab_b.bill }}</td>
+          <td><a href = "{{ url_for('delete_tab_b', tab_b_id = tab_b.id) }}">Delete</a></td>
+          
+          
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+  </table>
+</body>
+    
+{% endblock content %}
+
+

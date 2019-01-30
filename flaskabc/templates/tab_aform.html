@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!--<input type="text" placeholder="dd/mm/yyyy"--> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            
+            <table>
+                <tr>
+                    <td>
+                            <div class="form-group">
+                                    {{ form.ds.label(class="form-control-label") }}
+                                    
+                                    {% if form.ds.errors %}
+                                        {{ form.ds(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.ds.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                        {{ form.ds(class="form-control form-control-lg") }}
+                                    {% endif %}
+                                </div>
+                    </td>
+                    <td>
+                            <div class="form-group">
+                                    {{ form.dd.label(class="form-control-label") }}
+                                    
+                                    {% if form.dd.errors %}
+                                        {{ form.dd(class="form-control form-control-lg is-invalid") }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.dd.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                     {{ form.dd(class="form-control form-control-lg") }}
+                                    {% endif %}
+                            </div>
+                    </td>
+                    <td>
+                            <div class="form-group">
+                                    {{ form.dtym.label(class="form-control-label") }}
+                                                        
+                                        {% if form.dtym.errors %}
+                                            {{ form.dtym(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.dtym.errors %}
+                                                    <span>{{ error }}</span>
+                                                            {% endfor %}
+                                            </div>
+                                         {% else %}
+                                                {{ form.dtym(class="form-control form-control-lg") }}
+                                        {% endif %}
+                                </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                            <div class="form-group">
+                                    {{ form.arst.label(class="form-control-label") }}
+                                                        
+                                        {% if form.arst.errors %}
+                                            {{ form.arst(class="form-control form-control-lg is-invalid") }}
+                                            <div class="invalid-feedback">
+                                                {% for error in form.arst.errors %}
+                                                    <span>{{ error }}</span>
+                                                            {% endfor %}
+                                            </div>
+                                         {% else %}
+                                                {{ form.arst(class="form-control form-control-lg") }}
+                                        {% endif %}
+                            </div>
+                    </td>
+                        <td>
+                                <div class="form-group">
+                                        {{ form.ad.label(class="form-control-label") }}
+                                                            
+                                            {% if form.ad.errors %}
+                                                {{ form.ad(class="form-control form-control-lg is-invalid") }}
+                                                <div class="invalid-feedback">
+                                                    {% for error in form.ad.errors %}
+                                                        <span>{{ error }}</span>
+                                                                {% endfor %}
+                                                </div>
+                                             {% else %}
+                                             {{ form.ad(class="form-control form-control-lg") }}
+                                            {% endif %}
+                                </div>
+                        </td>
+                        <td>
+                                <div class="form-group">
+                                        {{ form.atym.label(class="form-control-label") }}
+                                                            
+                                            {% if form.atym.errors %}
+                                                {{ form.atym(class="form-control form-control-lg is-invalid") }}
+                                                <div class="invalid-feedback">
+                                                    {% for error in form.atym.errors %}
+                                                        <span>{{ error }}</span>
+                                                                {% endfor %}
+                                                </div>
+                                             {% else %}
+                                                    {{ form.atym(class="form-control form-control-lg") }}
+                                            {% endif %}
+                                </div>
+                        </td>
+                </tr>
+            </table>
+            
+
+            <div class="form-group">
+                    {{ form.moj.label(class="form-control-label") }}
+                                        
+                        {% if form.moj.errors %}
+                            {{ form.moj(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.moj.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.moj(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.jc.label(class="form-control-label") }}
+                                        
+                        {% if form.jc.errors %}
+                            {{ form.jc(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.jc.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.jc(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.road.label(class="form-control-label") }}
+                                        
+                        {% if form.road.errors %}
+                            {{ form.road(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.road.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.road(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.tktno.label(class="form-control-label") }}
+                                        
+                        {% if form.tktno.errors %}
+                            {{ form.tktno(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.tktno.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.tktno(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            <div class="form-group">
+                    {{ form.fare.label(class="form-control-label") }}
+                                        
+                        {% if form.fare.errors %}
+                            {{ form.fare(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.fare.errors %}
+                                    <span>{{ error }}</span>
+                                            {% endfor %}
+                            </div>
+                         {% else %}
+                                {{ form.fare(class="form-control form-control-lg") }}
+                        {% endif %}
+            </div>
+            
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('#datepick').datetimepicker();
+    });
+  </script>
+{% endblock %}

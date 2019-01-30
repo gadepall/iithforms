@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block content %}
+<p><a href = "{{ url_for('new_tab') }}"> Create new Travel Allowance Bill Form?</a> <a href = "{{ url_for('delete_tabs') }}">       Delete all Entries?</a></p>
+
+<head>
+    <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    </head>
+<body>
+  <table id="customers">
+      
+      <thead>
+    
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Staff No./ Roll No.</th>
+            <th>Designation</th>
+            <th>Department</th>
+            <th>Institute</th>
+            <th>Bank Details</th>
+            <th>Account Number</th>
+            <th>IFSC Code</th>
+            
+          </tr>
+    </thead>
+    <tbody>
+        {% for tab in tabs %}
+        <tr>
+          <td>{{ tab.name }}</td>
+          <td>{{ tab.srn }}</td>
+          <td>{{ tab.dsgn }}</td>
+          <td>{{ tab.dpt }}</td>
+          <td>{{ tab.inst }}</td>
+          <td>{{ tab.bankname }}</td>
+          <td>{{ tab.accno }}</td>
+          <td>{{ tab.ifsc }}</td>
+          <td><a href = "{{ url_for('all_tab_a', tab_id = tab.id) }}">Fill Part A</a></td>
+          <td><a href = "{{ url_for('all_tab_b', tab_id = tab.id) }}">Fill Part B</a></td>
+          <td><a href = "{{ url_for('update_tab', tab_id = tab.id) }}">Update</a></td>
+          <td><a href = "{{ url_for('delete_tab', tab_id = tab.id) }}">Delete</a></td>
+          <td><a href = "{{ url_for('download_tab', tab_id = tab.id) }}">Download</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    
+  </table>
+</body>
+    
+{% endblock content %}
+
+

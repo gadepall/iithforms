@@ -5,7 +5,8 @@ from flask import Flask, render_template, url_for, flash, redirect, request, abo
 from flaskabc import app, db
 from flaskabc.forms import TransactionForm, LoginForm, TelephoneForm, Travel_allwForm, ContingentForm, TabForm, Tab_aForm, Tab_bForm, Contingent_aForm, Reim_detForm, ReimForm
 from flaskabc.models import Transaction, User, Telephone, Contingent, Travel_allw, Tab, Tab_a, Tab_b, Contingent_a, Reim, Reim_det
-from werkzeug import secure_filename
+#from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 from io import BytesIO
 import os
 import xlsxwriter
